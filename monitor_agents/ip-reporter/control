@@ -1,0 +1,12 @@
+#!/bin/bash
+# ip-reporter/control
+
+function status() {
+    # 返回当前 IP
+    hostname -I | awk '{print $1}'
+}
+
+case "$1" in
+    status) status ;;
+    *) echo "Usage: $0 status" ;;
+esac
