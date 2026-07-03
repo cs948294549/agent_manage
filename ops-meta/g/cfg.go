@@ -22,11 +22,11 @@ type AgentDefaultConfig struct {
 }
 
 type AgentOtherConfig struct {
-	Prefix  string `json:"prefix"`
-	Version string `json:"version"`
-	Tarball string `json:"tarball"`
-	Md5     string `json:"md5"`
-	Cmd     string `json:"cmd"`
+	Groups  []string `json:"groups"`
+	Version string   `json:"version"`
+	Tarball string   `json:"tarball"`
+	Md5     string   `json:"md5"`
+	Cmd     string   `json:"cmd"`
 }
 
 type InheritConfig struct {
@@ -83,3 +83,4 @@ func ParseConfig(cfg string) error {
 	log.Println("read config file:", cfg, "successfully")
 	return nil
 }
+

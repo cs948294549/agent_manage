@@ -30,7 +30,17 @@ func DesiredAgents(hostname string) (desiredAgents []*model.DesiredAgent) {
 					continue
 				}
 
-				if !strings.HasPrefix(hostname, otherConfig.Prefix) {
+				if len(otherConfig.Groups) == 0 {
+					continue
+				}
+				matched := true
+				for _, group := range otherConfig.Groups {
+					if !strings.Contains(hostname, group) {
+						matched = false
+						break
+					}
+				}
+				if !matched {
 					continue
 				}
 
@@ -57,3 +67,4 @@ func DesiredAgents(hostname string) (desiredAgents []*model.DesiredAgent) {
 
 	return
 }
+

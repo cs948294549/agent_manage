@@ -16,14 +16,14 @@
             },
             "others": [
                 {
-                    "prefix": "lg-falcon",
+                    "groups": ["lg", "falcon"],
                     "version": "1.0.0",
                     "tarball": "",
                     "md5": "",
                     "cmd": ""
                 },
                 {
-                    "prefix": "lg-dinp",
+                    "groups": ["lg", "dinp"],
                     "version": "1.0.1",
                     "tarball": "",
                     "md5": "",

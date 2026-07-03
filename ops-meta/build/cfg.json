@@ -8,12 +8,21 @@
     "agents": [
         {
             "default": {
-                "name": "ip-reporter",
-                "version": "1.0.0",
+                "name": "dev_report",
+                "version": "1.0.1",
                 "tarball": "http://192.168.170.252:29555/",
                 "md5": "http://192.168.170.252:29555/",
                 "cmd": "start"
-            }
+            },
+            "others": [
+                {
+                    "groups": ["localhost"],
+                    "version": "1.0.0",
+                    "tarball": "",
+                    "md5": "",
+                    "cmd": ""
+                }
+            ]
         }
     ]
 }
