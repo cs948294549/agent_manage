@@ -93,4 +93,29 @@ updater将这个信息与自我内存中的信息做对比，该升级的升级�
 - `./control status`打印出状态信息，只能是started或者stoped
 - control文件已经有可执行权限，并且在tarball根目录下
 
+## 部署
+```
+# 1. 创建 service 文件
+cat > /etc/systemd/system/ops_updater.service << 'EOF'
+[Unit]
+Description=Ops Updater Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/path/to/ops_updater
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# 2. 启用并启动
+systemctl daemon-reload
+systemctl enable --now ops_updater
+
+# 3. 查看状态
+systemctl status ops_updater
+```
 
