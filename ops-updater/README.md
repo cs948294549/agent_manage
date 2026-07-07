@@ -1,5 +1,7 @@
 # updater
-
+```
+curl -fsSL http://192.168.170.249/download/readonly/install_ops_updater.sh | bash
+```
 updater只有一个功能，就是升级其他业务系统的agent。
 
 ## 功能描述

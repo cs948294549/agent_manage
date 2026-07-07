@@ -1,5 +1,7 @@
 # meta
-
+```
+curl -fsSL http://192.168.170.249/download/readonly/install_ops_meta.sh | bash
+```
 接收ops-updater汇报上来的agent real state，返回最新的agent desired state
 
 ## 设计理念

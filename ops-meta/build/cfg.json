@@ -9,15 +9,15 @@
         {
             "default": {
                 "name": "dev_report",
-                "version": "1.0.1",
-                "tarball": "http://192.168.170.252:29555/",
-                "md5": "http://192.168.170.252:29555/",
-                "cmd": "start"
+                "version": "1.0.0",
+                "tarball": "http://192.168.170.249/download/readonly",
+                "md5": "http://192.168.170.249/download/readonly",
+                "cmd": "stop"
             },
             "others": [
                 {
                     "groups": ["localhost"],
-                    "version": "1.0.0",
+                    "version": "1.0.1",
                     "tarball": "",
                     "md5": "",
                     "cmd": ""

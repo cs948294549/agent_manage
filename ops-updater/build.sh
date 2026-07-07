@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-APP="ops-updater-https"
+APP="ops-updater"
 IMAGE="ops-updater-build"
 OUTDIR="./build"
 
@@ -17,7 +17,9 @@ for platform in $PLATFORMS; do
 
     echo "==> Building ${APP} for ${suffix} ..."
 
-    docker build -t "${tag}" .
+    docker build \
+        --build-arg TARGETARCH="${GOARCH}" \
+        -t "${tag}" .
 
     cid=$(docker create "${tag}")
     docker cp "${cid}:/${APP}" "${OUTDIR}/${APP}-${suffix}"

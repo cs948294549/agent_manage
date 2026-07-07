@@ -4,7 +4,7 @@ set -e
 WORKSPACE=$(cd $(dirname $0)/; pwd)
 cd "$WORKSPACE"
 
-APP="ops-meta-https"
+APP="ops-meta"
 IMAGE="ops-meta-build"
 OUTDIR="./build"
 MODULE="meta-https"
@@ -23,7 +23,6 @@ for platform in $PLATFORMS; do
     echo "==> Building ${APP} for ${suffix} ..."
 
     docker build -t "${tag}" \
-        --build-arg TARGETOS="${GOOS}" \
         --build-arg TARGETARCH="${GOARCH}" \
         .
 
