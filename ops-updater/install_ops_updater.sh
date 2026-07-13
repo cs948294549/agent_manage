@@ -64,12 +64,6 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=${INSTALL_DIR}
-ExecStart=${INSTALL_DIR}/${BINARY_NAME}
-Restart=on-failure
-RestartSec=5
-
-Type=simple
-WorkingDirectory=${INSTALL_DIR}
 ExecStart=/bin/bash -c 'exec >> ${INSTALL_DIR}/logs/${BINARY_NAME}.log 2>&1; exec ${INSTALL_DIR}/${BINARY_NAME}'
 Restart=on-failure
 RestartSec=5
@@ -94,3 +88,4 @@ echo "  安装目录: ${INSTALL_DIR}"
 echo "  服务状态: systemctl status ${SERVICE_NAME}"
 echo "  查看日志: journalctl -u ${SERVICE_NAME} -f"
 echo "========================================="
+
