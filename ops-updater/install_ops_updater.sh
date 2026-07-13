@@ -20,6 +20,7 @@ fi
 
 echo "[2/6] 创建安装目录: ${INSTALL_DIR}"
 mkdir -p "${INSTALL_DIR}"
+mkdir -p "${INSTALL_DIR}/logs"
 
 echo "[3/6] 检测系统架构..."
 ARCH=$(uname -m)
@@ -66,6 +67,17 @@ WorkingDirectory=${INSTALL_DIR}
 ExecStart=${INSTALL_DIR}/${BINARY_NAME}
 Restart=on-failure
 RestartSec=5
+
+Type=simple
+WorkingDirectory=${INSTALL_DIR}
+ExecStart=/bin/bash -c 'exec >> ${INSTALL_DIR}/logs/${BINARY_NAME}.log 2>&1; exec ${INSTALL_DIR}/${BINARY_NAME}'
+Restart=on-failure
+RestartSec=5
+
+# 只保留 journal 输出
+StandardOutput=journal
+StandardError=journal
+
 
 [Install]
 WantedBy=multi-user.target
